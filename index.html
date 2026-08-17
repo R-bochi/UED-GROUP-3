@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuzzyBloom | Handmade Fuzzy Wire Gifts</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: #fff7fb;
+            color: #4a2738;
+        }
+
+        /* NAVBAR */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 247, 251, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #f7cddd;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: #d94f87;
+        }
+
+        .logo span {
+            color: #f49abb;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #63384c;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #df5c91;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background:
+                radial-gradient(circle at 10% 20%, #ffd9e8 0, transparent 25%),
+                radial-gradient(circle at 90% 80%, #ffc5dc 0, transparent 25%),
+                linear-gradient(135deg, #fff8fb, #ffeaf3);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #ffd0e2;
+            color: #b43d6e;
+            padding: 9px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1;
+            color: #b9346d;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #ef80a9;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #765263;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #d94f87;
+            color: white;
+            box-shadow: 0 8px 20px rgba(217, 79, 135, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #bd3b70;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #e889aa;
+            color: #c54677;
+        }
+
+        .btn-secondary:hover {
+            background: #ffe0ec;
+        }
+
+        /* SECTION */
+        section {
+            padding: 90px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            color: #b9346d;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #856272;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* PRODUCTS */
+        .products {
+            background: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fff7fb;
+            border: 1px solid #f5cede;
+            border-radius: 22px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(185, 52, 109, 0.12);
+        }
+
+        .product-image {
+            height: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+            background: linear-gradient(135deg, #ffd7e7, #ffeef5);
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h3 {
+            color: #b9346d;
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #806071;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #df4d84;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #ffe8f1;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-box {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(185, 52, 109, 0.08);
+        }
+
+        .about-box h2 {
+            color: #b9346d;
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .about-box p {
+            line-height: 1.8;
+            color: #765263;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            gap: 15px;
+        }
+
+        .feature {
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #ffd0e2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+        }
+
+        .feature h3 {
+            color: #b9346d;
+            margin-bottom: 4px;
+        }
+
+        .feature p {
+            font-size: 13px;
+            color: #806071;
+        }
+
+        /* HOW IT WORKS */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px;
+            border-radius: 22px;
+            background: #fff0f6;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #d94f87;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            color: #b9346d;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #806071;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: linear-gradient(135deg, #d94f87, #ef80a9);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        .contact-buttons {
+            margin-top: 30px;
+        }
+
+        .contact .btn {
+            background: white;
+            color: #c13e73;
+            margin: 5px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #4d2638;
+            color: #fbd8e5;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer strong {
+            color: #ff9fc1;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .product-grid,
+            .steps,
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 580px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">Petals of <span>Love</span> 🌷</div>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <div class="tag">♡ Handmade with Love ♡</div>
+
+            <h1>
+                Little Gifts,<br>
+                <span>Big Smiles.</span>
+            </h1>
+
+            <p>
+                Cute handmade fuzzy-wire bouquets and keychains,
+                carefully crafted to make every moment a little more special.
+            </p>
+
+            <div class="buttons">
+                <a href="#products" class="btn btn-primary">
+                    Shop Collection
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Custom Orders
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="products" id="products">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Our Cute Creations 🌸</h2>
+                <p>Handmade pieces made just for you.</p>
+            </div>
+
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🌷
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Fuzzy Tulip Bouquet</h3>
+
+                        <p>
+                            A sweet handmade tulip bouquet that
+                            never wilts.
+                        </p>
+
+                        <div class="price">₱150</div>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🌹
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Fuzzy Rose Bouquet</h3>
+
+                        <p>
+                            A soft and colorful rose bouquet
+                            perfect for gifting.
+                        </p>
+
+                        <div class="price">₱180</div>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🌼
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Mini Flower Bouquet</h3>
+
+                        <p>
+                            A small and adorable bouquet for
+                            birthdays and special occasions.
+                        </p>
+
+                        <div class="price">₱100</div>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🧸
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Fuzzy Bear Keychain</h3>
+
+                        <p>
+                            A cute fuzzy-wire bear that you can
+                            attach to your bag or keys.
+                        </p>
+
+                        <div class="price">₱70</div>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🌸
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Flower Keychain</h3>
+
+                        <p>
+                            A tiny handmade flower accessory
+                            for your everyday bag.
+                        </p>
+
+                        <div class="price">₱60</div>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        💕
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Custom Keychain</h3>
+
+                        <p>
+                            Choose your favorite color, shape,
+                            and design.
+                        </p>
+
+                        <div class="price">₱80+</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div class="container">
+
+            <div class="about-content">
+
+                <div class="about-box">
+
+                    <h2>Made With Love 💗</h2>
+
+                    <p>
+                        FuzzyBloom is a small handmade business
+                        creating colorful fuzzy-wire flowers,
+                        bouquets, and keychains.
+                    </p>
+
+                    <p>
+                        Every piece is carefully made by hand,
+                        making each creation unique and special.
+                    </p>
+
+                    <a href="#contact" class="btn btn-primary">
+                        Order Yours
+                    </a>
+
+                </div>
+
+
+                <div class="features">
+
+                    <div class="feature">
+                        <div class="feature-icon">🌸</div>
+
+                        <div>
+                            <h3>Handmade</h3>
+                            <p>Every piece is carefully crafted.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-icon">🎨</div>
+
+                        <div>
+                            <h3>Customizable</h3>
+                            <p>Pick colors and create your own design.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-icon">💝</div>
+
+                        <div>
+                            <h3>Perfect Gifts</h3>
+                            <p>Made for birthdays, anniversaries and more.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- HOW TO ORDER -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>How To Order</h2>
+                <p>Getting your own fuzzy creation is easy!</p>
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">1</div>
+
+                    <h3>Choose</h3>
+
+                    <p>
+                        Browse our bouquets and keychains
+                        and choose your favorite.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">2</div>
+
+                    <h3>Customize</h3>
+
+                    <p>
+                        Pick your preferred colors and
+                        request a custom design.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">3</div>
+
+                    <h3>Order</h3>
+
+                    <p>
+                        Message us with your order details
+                        and we'll start creating it!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <h2>Let's Make Something Cute! 💕</h2>
+
+            <p>
+                Have a special design in mind?
+                Send us a message and let's create
+                something special together.
+            </p>
+
+            <div class="contact-buttons">
+
+                <a href="https://www.facebook.com/" class="btn">
+                    Facebook
+                </a>
+
+                <a href="https://www.instagram.com/" class="btn">
+                    Instagram
+                </a>
+
+                <a href="mailto:hello@fuzzybloom.com" class="btn">
+                    Email Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <strong>FuzzyBloom</strong>.
+            Handmade with 💗
+        </p>
+
+    </footer>
+
+</body>
+</html>
